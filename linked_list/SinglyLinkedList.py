@@ -32,7 +32,7 @@ class SinglyLinkedList:
 
     def prepend(self, value):
         new_node = Node(value)
-        if self.head == None:
+        if self.head is None:
             self.head = new_node
             self.tail = new_node
         else:
@@ -41,9 +41,7 @@ class SinglyLinkedList:
         self.length += 1
 
     def insert(self, index, value):
-        assert (index in [0, -1]) or (
-            index <= self.length - 1 and index > 0
-        ), "Invalid Index"
+        assert (index in [0, -1]) or (self.length - 1 >= index > 0), "Invalid Index"
         if index == 0:
             self.prepend(value)
         elif index == -1:
@@ -104,9 +102,7 @@ class SinglyLinkedList:
         self.length = 0
 
     def get(self, index):
-        assert (index >= 0 and index <= self.length - 1) or (
-            index == -1
-        ), "Invalid Index"
+        assert (0 <= index <= self.length - 1) or (index == -1), "Invalid Index"
         current = self.head
         if index == 0:
             return self.head.value
@@ -117,9 +113,7 @@ class SinglyLinkedList:
         return current.value
 
     def set(self, index, value):
-        assert (index >= 0 and index <= self.length - 1) or (
-            index == -1
-        ), "Invalid Index"
+        assert (0 <= index <= self.length - 1) or (index == -1), "Invalid Index"
         current = self.head
         if index == 0:
             self.head.value = value
