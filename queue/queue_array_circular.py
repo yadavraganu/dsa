@@ -6,43 +6,46 @@ class Queue:
         self.rear = -1
 
     def is_full(self):
-        if self.rear == self.size - 1:
+        if self.front == -1 and self.rear == self.size - 1:
+            return True
+        elif (self.rear == self.front) and self.rear != -1:
             return True
         else:
             return False
 
     def is_empty(self):
-        if self.front == self.rear:
+        if self.front == self.rear == -1:
             return True
         else:
             return False
 
     def peek(self):
-        if self.front == self.rear:
+        if self.is_empty():
             raise Exception('Queue is empty')
         else:
             return self.storage[self.front + 1]
 
     def enqueue(self, value):
-        if not self.is_full():
-            self.rear += 1
+        if self.is_empty():
+            self.rear = self.rear + 1
             self.storage[self.rear] = value
-        else:
+        elif self.is_full():
             raise Exception('Queue is full')
+        else:
+            self.rear = ((self.rear + 1) % self.size)
+            self.storage[self.rear] = value
 
     def dequeue(self):
         if not self.is_empty():
-            self.front = self.front + 1
-            temp = self.storage[self.front ]
+            self.front = ((self.front + 1) % self.size)
+            temp = self.storage[self.front]
             self.storage[self.front] = None
-# Resetting front rear to -1 to utilize unused space. if both are same i.e queue is empty
+            # Resetting front rear to -1 to utilize unused space. if both are same i.e queue is empty
             if self.rear == self.front:
                 self.rear = -1
                 self.front = -1
             return temp
         else:
-            self.front = -1
-            self.rear = -1
             raise Exception('Queue is empty')
 
     def __str__(self):
@@ -50,19 +53,15 @@ class Queue:
 
 
 if __name__ == '__main__':
-    try:
-        q = Queue(2)
-        q.enqueue(2)
-        q.enqueue(3)
-        q.enqueue(4)
-    except Exception as e:
-        print(e)
-    try:
-        q = Queue(2)
-        q.enqueue(2)
-        q.dequeue()
-        q.dequeue()
-    except Exception as e:
-        print(e)
-
-
+    q = Queue(3)
+    q.enqueue(1)
+    q.enqueue(2)
+    q.enqueue(3)
+    print(q, q.front, q.rear)
+    q.dequeue()
+    q.dequeue()
+    print(q, q.front, q.rear, q.is_full())
+    q.enqueue(4)
+    q.enqueue(5)
+    q.enqueue(6)
+    print(q, q.front, q.rear, q.is_full())
