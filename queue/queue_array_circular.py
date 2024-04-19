@@ -6,14 +6,17 @@ class Queue:
         self.rear = -1
 
     def is_full(self):
+        # Queue is full when front at -1 & rear at end of the queue
         if self.front == -1 and self.rear == self.size - 1:
             return True
+        # Queue is full rear is equal to front & it could happen at queue empty as well so ignoring -1 index
         elif (self.rear == self.front) and self.rear != -1:
             return True
         else:
             return False
 
     def is_empty(self):
+        # Considering queue empty only when front & rear are -1
         if self.front == self.rear == -1:
             return True
         else:
