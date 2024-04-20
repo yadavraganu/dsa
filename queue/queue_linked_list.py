@@ -34,6 +34,12 @@ class Queue:
         else:
             return False
 
+    def peek(self):
+        if not self.isempty():
+            return self.linked_list.head.value
+        else:
+            raise Exception('Queue is empty')
+
     def enqueue(self, value):
         if not self.isfull():
             new_node = Node(value)
@@ -76,5 +82,5 @@ if __name__ == '__main__':
     print(q, q.linked_list.length)
     print(q.dequeue())
     q.dequeue()
-    print(q.dequeue())
-    print(q, q.linked_list.length)
+    # print(q.dequeue())
+    print(q, q.linked_list.length, q.peek())
