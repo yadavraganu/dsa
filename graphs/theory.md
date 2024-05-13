@@ -12,3 +12,5 @@ In the above DAG, a few of the possible topological sorts could be:
 2. A C B E G D F H
 3. B E G A D C F H
 ```
+# DFS & BFS
+![dfs_bfs.gif](..%2Fimages%2Fdfs_bfs.gif)
