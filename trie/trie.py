@@ -33,14 +33,14 @@ def search(root, word):
 
 def delete(root, word, index):
     if index == len(word):
-        if not root.isFinal:
-            return False
-        else:
-            root.isFinal = True
+        if root.isFinal:
+            root.isFinal = False
             if len(root.children) == 0:
                 return True
             else:
                 return False
+        else:
+            return False
     else:
         char = word[index]
         if char not in root.children:
@@ -61,7 +61,10 @@ def delete(root, word, index):
 if __name__ == '__main__':
     t = Trie()
     print(insert(t.root, 'sit'))
-    print(insert(t.root, 'abc'))
-    print(insert(t.root, 'sitty'))
-    delete(t.root, 'sitty', 0)
+    delete(t.root, 'sit', 0)
     print(search(t.root, 'sit'))
+    print('-'*10)
+    print(t.root.children.keys())
+    print(t.root.children['s'].children.keys())
+    print(t.root.children['s'].children['i'].children.keys())
+    print(t.root.children['s'].children['i'].children['t'].isFinal)
