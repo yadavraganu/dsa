@@ -32,16 +32,30 @@ def search(root, word):
 
 
 def delete(root, word, index):
-    current_node = root
-    flag = False
-    current_letter = word[index]
-    if len(word) - 1 != index:
-        flag = delete(current_node.children.get(current_letter), word, index + 1)
-    print(current_node.children,current_node.children.get(current_letter).children, current_node.isFinal,current_letter)
-    if len(current_node.children.get(current_letter).children) == 0 and current_node.isFinal:
-        current_node.children.pop(current_letter)
-        print(current_node.children)
-        return True
+    if index == len(word):
+        if not root.isFinal:
+            return False
+        else:
+            root.isFinal = True
+            if len(root.children) == 0:
+                return True
+            else:
+                return False
+    else:
+        char = word[index]
+        if char not in root.children:
+            return False
+        else:
+            current_node = root.children[char]
+    tobedeleted = delete(current_node, word, index + 1)
+    if tobedeleted:
+        del root.children[char]
+        if len(root.children) > 0 or root.isFinal:
+            return False
+        else:
+            return True
+    else:
+        return False
 
 
 if __name__ == '__main__':
@@ -49,14 +63,5 @@ if __name__ == '__main__':
     print(insert(t.root, 'sit'))
     print(insert(t.root, 'abc'))
     print(insert(t.root, 'sitty'))
-    print(delete(t.root, 'sitty', 0))
-
+    delete(t.root, 'sitty', 0)
     print(search(t.root, 'sit'))
-    print(search(t.root, 'abc'))
-    print(t.root.children)
-    print(t.root.children['s'])
-    print(t.root.children['s'].children)
-    print(t.root.children['s'].children['i'].children)
-    print(t.root.children['s'].children['i'].children['t'].children)
-    print(t.root.children['s'].children['i'].children['t'].children['t'].children)
-
