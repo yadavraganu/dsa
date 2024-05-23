@@ -9,10 +9,15 @@ def add_node(root_node, val):
     if root_node is None:
         return BstNode(val)
     if val <= root_node.val:
-        root_node.left = add_node(root_node.left, val)
-    elif val > root_node.val:
-        root_node.right = add_node(root_node.right, val)
-    return root_node
+        if root_node.left is not None:
+            add_node(root_node.left, val)
+        else:
+            root_node.left = BstNode(val)
+    if val > root_node.val:
+        if root_node.right is not None:
+            add_node(root_node.right, val)
+        else:
+            root_node.right = BstNode(val)
 
 
 def pre_order_traversal(root_node):
@@ -20,6 +25,22 @@ def pre_order_traversal(root_node):
         return
     print(root_node.val)
     pre_order_traversal(root_node.left)
+    pre_order_traversal(root_node.right)
+
+
+def post_order_traversal(root_node):
+    if root_node is None:
+        return
+    pre_order_traversal(root_node.left)
+    pre_order_traversal(root_node.right)
+    print(root_node.val)
+
+
+def in_order_traversal(root_node):
+    if root_node is None:
+        return
+    pre_order_traversal(root_node.left)
+    print(root_node.val)
     pre_order_traversal(root_node.right)
 
 
@@ -54,11 +75,8 @@ def delete_bst(root_node):
 
 if __name__ == '__main__':
     root = BstNode(1)
-    print(add_node(root, 3).val)
-    print(add_node(root, 4).val)
-
+    add_node(root, 3)
+    add_node(root, 4)
     pre_order_traversal(root)
-
     root = delete_node(root, 1)
-
     pre_order_traversal(root)
