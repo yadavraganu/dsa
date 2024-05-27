@@ -39,6 +39,22 @@ class AvlTree:
         root.height = 1 + max(self.get_height(root.right), self.get_height(root.left))
         print(self.get_balance(root))
 
+    def rightRotate(self, disbalancedNode):
+        new_node = disbalancedNode.left
+        disbalancedNode.left = disbalancedNode.left.right
+        new_node.right = disbalancedNode
+        disbalancedNode.height = 1 + max(self.get_height(disbalancedNode.right), self.get_height(disbalancedNode.left))
+        new_node.height = 1 + max(self.get_height(new_node.right), self.get_height(new_node.left))
+        return new_node
+
+    def leftRotate(self, disbalancedNode):
+        new_node = disbalancedNode.right
+        disbalancedNode.right = disbalancedNode.right.left
+        new_node.left = disbalancedNode
+        disbalancedNode.height = 1 + max(self.get_height(disbalancedNode.right), self.get_height(disbalancedNode.left))
+        new_node.height = 1 + max(self.get_height(new_node.right), self.get_height(new_node.left))
+        return new_node
+
 
 if __name__ == '__main__':
     avl = AvlTree(3)
