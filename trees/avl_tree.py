@@ -37,7 +37,10 @@ class AvlTree:
                 self.insert(root.right, data)
 
         root.height = 1 + max(self.get_height(root.right), self.get_height(root.left))
-        print(self.get_balance(root))
+        if self.get_balance(root) > :
+        elif self.get_balance(root) > :
+        elif self.get_balance(root) > :
+        elif self.get_balance(root) > :
 
     def rightRotate(self, disbalancedNode):
         new_node = disbalancedNode.left
