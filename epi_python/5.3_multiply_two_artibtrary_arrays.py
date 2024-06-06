@@ -1,3 +1,8 @@
+"""
+Write a program that takes two arrays representing integers, and returns an integer array representing their product
+"""
+
+
 def multiply(num1, num2):
     result = [0] * (len(num1) + len(num2))
     for i in range(len(num1) - 1, -1, -1):
