@@ -6,12 +6,11 @@ def breadth_first_traversal_iterative(graph, node):
     while queue:
         current_node = queue.pop(0)
         visited.add(current_node)
+        print(f'Visited Node {current_node}')
 
         for neighbour in graph[current_node]:
             if neighbour not in visited:
                 queue.append(neighbour)
-
-    return visited
 
 
 if __name__ == '__main__':
