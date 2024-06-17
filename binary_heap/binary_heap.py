@@ -21,17 +21,17 @@ class Heap:
         right = 2 * index + 2
         swap = index
         if self.heap_typ == 'max':
-            if right <= self.heap_size-1 and self.heap[right] > self.heap[index] :
+            if right <= self.heap_size - 1 and self.heap[right] > self.heap[index]:
                 swap = right
                 self.heap[right], self.heap[index] = self.heap[index], self.heap[right]
-            elif left <= self.heap_size-1 and self.heap[index] < self.heap[left] :
+            elif left <= self.heap_size - 1 and self.heap[index] < self.heap[left]:
                 self.heap[left], self.heap[index] = self.heap[index], self.heap[left]
                 swap = left
-        elif  self.heap_typ == 'min':
-            if right <= self.heap_size-1 and self.heap[right] < self.heap[index] :
+        elif self.heap_typ == 'min':
+            if right <= self.heap_size - 1 and self.heap[right] < self.heap[index]:
                 swap = right
                 self.heap[right], self.heap[index] = self.heap[index], self.heap[right]
-            elif left <= self.heap_size-1 and self.heap[index] > self.heap[left] :
+            elif left <= self.heap_size - 1 and self.heap[index] > self.heap[left]:
                 self.heap[left], self.heap[index] = self.heap[index], self.heap[left]
                 swap = left
         if swap != index:
