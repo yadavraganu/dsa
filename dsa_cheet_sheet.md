@@ -12,3 +12,5 @@
    https://www.geeksforgeeks.org/problems/trapping-rain-water-1587115621/1
 7. Chocolate Distribution problem  
    https://www.geeksforgeeks.org/problems/chocolate-distribution-problem3825/1
+8. Smallest Subarray with sum greater than a given value  
+   https://www.geeksforgeeks.org/problems/smallest-subarray-with-sum-greater-than-x5651/1
