@@ -10,3 +10,5 @@
    https://www.geeksforgeeks.org/problems/move-all-negative-elements-to-end1813/1
 6. Trapping Rain water problem  
    https://www.geeksforgeeks.org/problems/trapping-rain-water-1587115621/1
+7. Chocolate Distribution problem  
+   https://www.geeksforgeeks.org/problems/chocolate-distribution-problem3825/1
