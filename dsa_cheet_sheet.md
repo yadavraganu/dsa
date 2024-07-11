@@ -16,3 +16,5 @@
    https://www.geeksforgeeks.org/problems/smallest-subarray-with-sum-greater-than-x5651/1
 9. Kadane's Algorithm or Find Largest sum contiguous Subarray  
    https://www.geeksforgeeks.org/problems/kadanes-algorithm-1587115620/1
+10. Find maximum product subarray   
+   https://www.geeksforgeeks.org/problems/maximum-product-subarray3604/1
