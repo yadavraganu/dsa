@@ -22,3 +22,5 @@
     https://www.geeksforgeeks.org/problems/array-subset-of-another-array2317/1
 12. Minimum no. of operations required to make an array palindrome    
     https://www.geeksforgeeks.org/problems/palindromic-array-1587115620/1
+13. Find factorial of a large number  
+    https://www.geeksforgeeks.org/problems/factorials-of-large-numbers2508/1
