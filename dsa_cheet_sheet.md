@@ -20,3 +20,5 @@
     https://www.geeksforgeeks.org/problems/maximum-product-subarray3604/1
 11. Find whether an array is a subset of another array  
     https://www.geeksforgeeks.org/problems/array-subset-of-another-array2317/1
+12. Minimum no. of operations required to make an array palindrome    
+    https://www.geeksforgeeks.org/problems/palindromic-array-1587115620/1
