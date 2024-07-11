@@ -17,4 +17,6 @@
 9. Kadane's Algorithm or Find Largest sum contiguous Subarray  
    https://www.geeksforgeeks.org/problems/kadanes-algorithm-1587115620/1
 10. Find maximum product subarray   
-   https://www.geeksforgeeks.org/problems/maximum-product-subarray3604/1
+    https://www.geeksforgeeks.org/problems/maximum-product-subarray3604/1
+11. Find whether an array is a subset of another array  
+    https://www.geeksforgeeks.org/problems/array-subset-of-another-array2317/1
