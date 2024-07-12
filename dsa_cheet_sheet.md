@@ -24,3 +24,5 @@
     https://www.geeksforgeeks.org/problems/palindromic-array-1587115620/1
 13. Find factorial of a large number  
     https://www.geeksforgeeks.org/problems/factorials-of-large-numbers2508/1
+14. Minimum no. of Jumps to reach end of an array  
+    https://www.geeksforgeeks.org/problems/minimum-number-of-jumps-1587115620/1
