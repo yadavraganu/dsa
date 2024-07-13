@@ -26,3 +26,7 @@
     https://www.geeksforgeeks.org/problems/factorials-of-large-numbers2508/1
 14. Minimum no. of Jumps to reach end of an array  
     https://www.geeksforgeeks.org/problems/minimum-number-of-jumps-1587115620/1
+15. Find duplicate in an array of N+1 Integers
+    https://www.geeksforgeeks.org/problems/find-duplicates-in-an-array/1
+16. Write a program to cyclically rotate an array by one.
+    https://www.geeksforgeeks.org/problems/cyclically-rotate-an-array-by-one2614/1
