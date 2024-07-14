@@ -32,3 +32,7 @@
     https://www.geeksforgeeks.org/problems/cyclically-rotate-an-array-by-one2614/1
 17. Find all pairs on integer array whose sum is equal to given number  
     https://www.geeksforgeeks.org/problems/count-pairs-with-given-sum5022/1
+18. Find if there is any subarray with sum equal to 0
+    https://www.geeksforgeeks.org/problems/subarray-with-0-sum-1587115621/1
+19. Merge Intervals
+20. Merge 2 sorted arrays without using Extra space
