@@ -38,3 +38,7 @@
     https://www.geeksforgeeks.org/problems/overlapping-intervals--170633/1
 21. Merge 2 sorted arrays without using Extra space  
     https://www.geeksforgeeks.org/problems/merge-two-sorted-arrays-1587115620/1
+22. Find common elements In 3 sorted arrays
+    https://www.geeksforgeeks.org/problems/common-elements1132/1
+23. Find common elements In 3 sorted arrays
+    https://www.geeksforgeeks.org/problems/common-elements1132/1
