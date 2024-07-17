@@ -42,3 +42,8 @@
     https://www.geeksforgeeks.org/problems/common-elements1132/1
 23. Find common elements In 3 sorted arrays
     https://www.geeksforgeeks.org/problems/common-elements1132/1
+# Dynamic Programming :
+1. Fibonacci Number  
+   https://leetcode.com/problems/fibonacci-number/submissions/1324090503/
+2. Climbing-Stairs  
+   https://leetcode.com/problems/climbing-stairs/description/   
