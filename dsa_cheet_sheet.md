@@ -46,4 +46,6 @@
 1. Fibonacci Number  
    https://leetcode.com/problems/fibonacci-number/submissions/1324090503/
 2. Climbing-Stairs  
-   https://leetcode.com/problems/climbing-stairs/description/   
+   https://leetcode.com/problems/climbing-stairs/description/
+3. House-Robber
+   https://leetcode.com/problems/house-robber/submissions/1324961201/
