@@ -1,6 +1,4 @@
 # Binary Tree and Trie Problems Solutions
-# Each function includes time and space complexity annotations
-
 ```
 class TreeNode:
     def __init__(self, val=0, left=None, right=None, parent=None):
