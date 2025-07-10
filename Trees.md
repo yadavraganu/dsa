@@ -39,14 +39,15 @@ def is_symmetric(root):
 ```
 # 3. Compute the Lowest Common Ancestor in a Binary Tree
 ```
-def lowest_common_ancestor(root, p, q):
-    if not root or root == p or root == q:
-        return root
-    left = lowest_common_ancestor(root.left, p, q)
-    right = lowest_common_ancestor(root.right, p, q)
-    if left and right:
-        return root
-    return left if left else right
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        if not root or root.val == p.val or root.val == q.val:
+            return root
+        left = self.lowestCommonAncestor(root.left, p, q)
+        right = self.lowestCommonAncestor(root.right, p, q)
+        if left and right:
+            return root
+        return left if left else right
 ```
 # 4. Compute the LCA When Nodes Have Parent Pointers
 ```
@@ -111,18 +112,22 @@ def preorder_traversal(root):
             stack.append(node.left)
     return result
 ```
-# 9. Compute the Kth Node in an Inorder Traversal (with size field)
+# 9. Compute the Kth Node in an Inorder Traversal (kth-smallest-element-in-a-bst)
 ```
-def kth_node_inorder(root, k):
-    while root:
-        left_size = root.left.size if root.left else 0
-        if k <= left_size:
-            root = root.left
-        elif k == left_size + 1:
+class Solution:
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        stack = []
+        if not root:
             return root
-        else:
-            k -= left_size + 1
-            root = root.right
+        while True:
+            while root:
+                stack.append(root)
+                root = root.left
+            elem = stack.pop()
+            k = k-1
+            if k == 0:
+                return elem.val
+            root = elem.right
 ```
 # 10. Compute the Successor
 ```
@@ -259,12 +264,13 @@ def max_depth(root):
 ```
 # 18. Same Tree
 ```
-def is_same_tree(p, q):
-    if not p and not q:
-        return True
-    if not p or not q or p.val != q.val:
-        return False
-    return is_same_tree(p.left, q.left) and is_same_tree(p.right, q.right)
+class Solution:
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        if not p and not q:
+            return True
+        elif not p or not q or p.val != q.val:
+            return False
+        return self.isSameTree(p.left,q.left) and self.isSameTree(p.right,q.right)
 ```
 # 20. Invert/Flip Binary Tree
 ```
