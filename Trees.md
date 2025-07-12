@@ -1,5 +1,5 @@
 # Binary Tree and Trie Problems Solutions
-```
+```python
 class TreeNode:
     def __init__(self, val=0, left=None, right=None, parent=None):
         self.val = val
@@ -13,7 +13,7 @@ class ListNode:
         self.next = next
 ```
 # 1. Test if a Binary Tree is Height-Balanced
-```
+```python
 def is_balanced(root):
     def check(node):
         if not node:
@@ -25,7 +25,7 @@ def is_balanced(root):
     return check(root)[1]
 ```
 # 2. Test if a Binary Tree is Symmetric
-```
+```python
 def is_symmetric(root):
     def is_mirror(t1, t2):
         if not t1 and not t2:
@@ -38,7 +38,7 @@ def is_symmetric(root):
     return is_mirror(root, root)
 ```
 # 3. Compute the Lowest Common Ancestor in a Binary Tree
-```
+```python
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         if not root or root.val == p.val or root.val == q.val:
@@ -50,7 +50,7 @@ class Solution:
         return left if left else right
 ```
 # 4. Compute the LCA When Nodes Have Parent Pointers
-```
+```python
 def lca_with_parent(p, q):
     ancestors = set()
     while p:
@@ -62,7 +62,7 @@ def lca_with_parent(p, q):
         q = q.parent
 ```
 # 5. Sum the Root-to-Leaf Paths in a Binary Tree
-```
+```python
 def sum_root_to_leaf(root):
     def dfs(node, current_sum):
         if not node:
@@ -74,7 +74,7 @@ def sum_root_to_leaf(root):
     return dfs(root, 0)
 ```
 # 6. Find a Root to Leaf Path with Specified Sum
-```
+```python
 def has_path_sum(root, target_sum):
     if not root:
         return False
@@ -84,7 +84,7 @@ def has_path_sum(root, target_sum):
             has_path_sum(root.right, target_sum - root.val))
 ```
 # 7. Inorder Traversal Without Recursion
-```
+```python
 def inorder_traversal(root):
     stack, result = [], []
     current = root
@@ -98,7 +98,7 @@ def inorder_traversal(root):
     return result
 ```
 # 8. Preorder Traversal Without Recursion
-```
+```python
 def preorder_traversal(root):
     if not root:
         return []
@@ -113,7 +113,7 @@ def preorder_traversal(root):
     return result
 ```
 # 9. Compute the Kth Node in an Inorder Traversal (kth-smallest-element-in-a-bst)
-```
+```python
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         stack = []
@@ -130,7 +130,7 @@ class Solution:
             root = elem.right
 ```
 # 10. Compute the Successor
-```
+```python
 def inorder_successor(node):
     if node.right:
         node = node.right
@@ -142,7 +142,7 @@ def inorder_successor(node):
     return node.parent
 ```
 # 11. Inorder Traversal with O(1) Space (Morris Traversal)
-```
+```python
 def morris_inorder_traversal(root):
     result = []
     current = root
@@ -164,7 +164,7 @@ def morris_inorder_traversal(root):
     return result
 ```
 # 12. Reconstruct Binary Tree from Preorder and Inorder
-```
+```python
 def build_tree(preorder, inorder):
     inorder_index = {val: idx for idx, val in enumerate(inorder)}
     def helper(pre_start, in_start, in_end):
@@ -180,7 +180,7 @@ def build_tree(preorder, inorder):
     return helper(0, 0, len(inorder) - 1)
 ```
 # 13. Reconstruct Binary Tree from Preorder with Markers
-```
+```python
 def build_tree_with_markers(preorder):
     def helper(it):
         val = next(it)
@@ -193,7 +193,7 @@ def build_tree_with_markers(preorder):
     return helper(iter(preorder))
 ```
 # 14. Form a Linked List from the Leaves of a Binary Tree
-```
+```python
 def leaf_linked_list(root):
     dummy = ListNode(0)
     current = dummy
@@ -210,7 +210,7 @@ def leaf_linked_list(root):
     return dummy.next
 ```
 # 15. Compute the Exterior of a Binary Tree
-```
+```python
 def exterior_binary_tree(root):
     def is_leaf(node):
         return not node.left and not node.right
@@ -239,7 +239,7 @@ def exterior_binary_tree(root):
     return [root] + left_boundary(root.left) + leaves(root) + right_boundary(root.right)
 ```
 # 16. Compute the Right Sibling Tree
-```
+```python
 def connect_right_siblings(root):
     if not root:
         return
@@ -256,14 +256,14 @@ def connect_right_siblings(root):
         queue = next_level
 ```
 # 17. Maximum Depth of Binary Tree
-```
+```python
 def max_depth(root):
     if not root:
         return 0
     return 1 + max(max_depth(root.left), max_depth(root.right))
 ```
 # 18. Same Tree
-```
+```python
 class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         if not p and not q:
@@ -273,7 +273,7 @@ class Solution:
         return self.isSameTree(p.left,q.left) and self.isSameTree(p.right,q.right)
 ```
 # 20. Invert/Flip Binary Tree
-```
+```python
 def invert_tree(root):
     if not root:
         return None
@@ -281,7 +281,7 @@ def invert_tree(root):
     return root
 ```
 # 21. Binary Tree Maximum Path Sum
-```
+```python
 def max_path_sum(root):
     max_sum = float('-inf')
     def dfs(node):
@@ -296,7 +296,7 @@ def max_path_sum(root):
     return max_sum
 ```
 # 22. Binary Tree Level Order Traversal
-```
+```python
 def level_order(root):
     if not root:
         return []
@@ -314,7 +314,7 @@ def level_order(root):
     return result
 ```
 # 23. Serialize and Deserialize Binary Tree
-```
+```python
 def serialize(root):
     if not root:
         return []
@@ -348,7 +348,7 @@ def deserialize(data):
     return root
 ```
 # 24. Subtree of Another Tree
-```
+```python
 def is_subtree(s, t):
     def is_same(a, b):
         if not a and not b:
@@ -363,7 +363,7 @@ def is_subtree(s, t):
     return is_subtree(s.left, t) or is_subtree(s.right, t)
 ```
 # 25. Find Leaves of Binary Tree
-```
+```python
 def find_leaves(root):
     result = []
     def dfs(node):
@@ -378,7 +378,7 @@ def find_leaves(root):
     return result
 ```
 # 27. Validate Binary Search Tree
-```
+```python
 def is_valid_bst(root):
     def validate(node, low, high):
         if not node:
@@ -390,7 +390,7 @@ def is_valid_bst(root):
     return validate(root, float('-inf'), float('inf'))
 ```
 # 28. Kth Smallest Element in a BST
-```
+```python
 def kth_smallest(root, k):
     stack = []
     while True:
@@ -404,7 +404,7 @@ def kth_smallest(root, k):
         root = root.right
 ```
 # 29. Lowest Common Ancestor of BST
-```
+```python
 def lca_bst(root, p, q):
     while root:
         if p.val < root.val and q.val < root.val:
@@ -415,7 +415,7 @@ def lca_bst(root, p, q):
             return root
 ```
 # 30. Binary Tree Zigzag Level Order Traversal
-```
+```python
 def zigzag_level_order(root):
     if not root:
         return []
@@ -437,7 +437,7 @@ def zigzag_level_order(root):
     return result
 ```
 # 31. Implement Trie (Prefix Tree)
-```
+```python
 class TrieNode:
     def __init__(self):
         self.children = {}
@@ -469,7 +469,7 @@ class Trie:
         return True
 ```
 # 32. Add and Search Word
-```
+```python
 class WordDictionary:
     def __init__(self):
         self.root = TrieNode()
@@ -492,7 +492,7 @@ class WordDictionary:
         return dfs(self.root, 0)
 ```
 # 33. Word Search II
-```
+```python
 def find_words(board, words):
     trie = Trie()
     for word in words:
