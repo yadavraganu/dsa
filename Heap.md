@@ -1,5 +1,5 @@
 # Kth Largest Element in a Stream
-```
+```python
 import heapq
 
 class KthLargest:
@@ -16,7 +16,7 @@ class KthLargest:
         return self.heap[0]
 ```
 # Last Stone Weight
-```
+```python
 import heapq
 
 class Solution:
@@ -33,7 +33,7 @@ class Solution:
         return -max_heap[0] if max_heap else 0
 ```
 # Kth Largest Element in an Array
-```
+```python
 import heapq
 
 class Solution:
@@ -41,7 +41,7 @@ class Solution:
         return heapq.nlargest(k, nums)[k-1]
 ```
 # K Closest Points to Origin
-```
+```python
 import heapq
 import math
 
@@ -58,7 +58,7 @@ class Solution:
         return result
 ```
 # High Five
-```
+```python
 import heapq
 
 class Solution:
@@ -78,7 +78,7 @@ class Solution:
         return result
 ```
 # Employee Free Time
-```
+```python
 import heapq
 
 class Interval:
@@ -117,7 +117,7 @@ class Solution:
         return free_time
 ```
 # Sliding Window Maximum
-```
+```python
 import collections
 
 class Solution:
@@ -140,7 +140,7 @@ class Solution:
         return result
 ```
 # Top K Frequent Elements
-```
+```python
 import collections
 import heapq
 
@@ -158,7 +158,7 @@ class Solution:
         return result
 ```
 # Find Median from Data Stream
-```
+```python
 import heapq
 
 class MedianFinder:
@@ -184,7 +184,7 @@ class MedianFinder:
             return float(-self.max_heap[0])
 ```
 # Merge sorted files
-```
+```python
 import heapq
 
 def merge_sorted_files(files: list[list[int]]) -> list[int]:
@@ -205,7 +205,7 @@ def merge_sorted_files(files: list[list[int]]) -> list[int]:
     return result
 ```
 # Sort an increasing-decreasing array
-```
+```python
 def sort_increasing_decreasing_array(arr: list[int]) -> list[int]:
     if not arr:
         return []
@@ -226,7 +226,7 @@ def sort_increasing_decreasing_array(arr: list[int]) -> list[int]:
     return merge_sorted_files(subarrays)
 ```
 # Sort an almost-sorted array
-```
+```python
 import heapq
 
 def sort_almost_sorted_array(arr: list[int], k: int) -> list[int]:
@@ -244,7 +244,7 @@ def sort_almost_sorted_array(arr: list[int], k: int) -> list[int]:
     return result
 ```
 # Compute the k closest stars
-```
+```python
 import heapq
 import math
 
@@ -271,7 +271,7 @@ def compute_k_closest_stars(stars: list[Star], k: int) -> list[Star]:
     return sorted(max_heap, key=lambda s: s.distance_from_origin())
 ```
 # Compute the median of online data
-```
+```python
 import heapq
 
 def compute_median_of_online_data(data_stream):
@@ -298,7 +298,7 @@ def compute_median_of_online_data(data_stream):
     return medians
 ```
 # Compute the k largest elements in a max-heap
-```
+```python
 import heapq
 
 def compute_k_largest_in_max_heap(max_heap_list: list[int], k: int) -> list[int]:
@@ -313,7 +313,7 @@ def compute_k_largest_in_max_heap(max_heap_list: list[int], k: int) -> list[int]
     return result
 ```
 # Implement a stack API using a heap
-```
+```python
 import heapq
 
 class StackUsingHeap:
