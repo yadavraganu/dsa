@@ -115,3 +115,77 @@ print(f"add_five.__closure__[0].cell_contents: {add_five.__closure__[0].cell_con
 print(f"add_ten.__closure__[0].cell_contents: {add_ten.__closure__[0].cell_contents}")
 # Output: 10
 ```
+## Application of Closures
+### 1. Function Factory
+```python
+def make_multiplier(factor):
+    def multiplier(number):
+        return number * factor
+    return multiplier
+
+double = make_multiplier(2)
+triple = make_multiplier(3)
+quadruple = make_multiplier(4)
+
+print(f"2 * 5 = {double(5)}")    # factor = 2
+print(f"3 * 7 = {triple(7)}")    # factor = 3
+print(f"4 * 10 = {quadruple(10)}") # factor = 4
+```
+### 2. Simple Counter
+```python
+def create_counter():
+    count = 0 # Non-local variable
+
+    def increment():
+        nonlocal count # Declare intent to modify non-local variable
+        count += 1
+        return count
+    return increment
+
+counter1 = create_counter()
+print(f"Counter 1: {counter1()}") # 1
+print(f"Counter 1: {counter1()}") # 2
+
+counter2 = create_counter() # New independent counter
+print(f"Counter 2: {counter2()}") # 1
+print(f"Counter 1: {counter1()}") # 3 (counter1 is still independent)
+```
+### 3. Data Hiding / Encapsulation
+```python
+def bank_account(initial_balance):
+    balance = initial_balance # This is "private"
+
+    def get_balance():
+        return balance
+
+    def deposit(amount):
+        nonlocal balance
+        if amount > 0:
+            balance += amount
+            return True
+        return False
+
+    def withdraw(amount):
+        nonlocal balance
+        if 0 < amount <= balance:
+            balance -= amount
+            return True
+        return False
+
+    return {'get_balance': get_balance, 'deposit': deposit, 'withdraw': withdraw}
+
+account = bank_account(100)
+print(f"Initial balance: {account['get_balance']()}") # 100
+
+account['deposit'](50)
+print(f"Balance after deposit: {account['get_balance']()}") # 150
+
+account['withdraw'](75)
+print(f"Balance after withdrawal: {account['get_balance']()}") # 75
+
+account['withdraw'](100) # Fails
+print(f"Balance after failed withdrawal: {account['get_balance']()}") # 75
+
+# You cannot directly access account.balance
+# print(account.balance) # AttributeError: 'dict' object has no attribute 'balance'
+```
