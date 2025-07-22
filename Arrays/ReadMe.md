@@ -82,6 +82,21 @@ class Solution:
         return res
 ```
 ### Maximum Product Subarray
+```python
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        curr_max = 1
+        curr_min = 1
+        res = float("-inf")
+
+        for i in nums:
+            temp = curr_max * i
+            curr_max = max(i, temp, curr_min * i)
+            curr_min = min(i, temp, curr_min * i)
+
+            res = max(res, curr_max)
+        return res
+```
 ### Find Minimum in Rotated Sorted Array
 ```python
 class Solution:
