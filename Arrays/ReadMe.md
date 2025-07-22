@@ -96,7 +96,7 @@ class Solution:
                 res = min(res, nums[l])
                 l = mid + 1
             else:
-                res = min(res, mid)
+                res = min(res, nums[mid])
                 r = mid - 1
         return res
 ```
