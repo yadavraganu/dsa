@@ -124,6 +124,25 @@ class Solution:
 ### Two Sum II
 ### 3 Sum
 ### Merge Sorted Array
+```python
+class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        m_ind = m - 1
+        n_ind = n - 1
+        merge_ind = m + n - 1
+        while m_ind >= 0 and n_ind >= 0:
+            if nums1[m_ind] > nums2[n_ind]:
+                nums1[merge_ind] = nums1[m_ind]
+                m_ind -= 1
+            else:
+                nums1[merge_ind] = nums2[n_ind]
+                n_ind -= 1
+            merge_ind -= 1
+        while n_ind >= 0:
+            nums1[merge_ind] = nums2[n_ind]
+            n_ind -= 1
+            merge_ind -= 1
+```
 ### Container With Most Water
 ```python
 def max_area(height):
