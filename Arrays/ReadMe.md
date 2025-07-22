@@ -92,6 +92,37 @@ class Solution:
 ### Next Permutation
 ### Remove Duplicates from Sorted Array
 ### Find First and Last Position of Element in Sorted Array
+```python
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        def binary_search_left(nums,target):
+            l,r = 0,len(nums)-1
+            first = -1
+            while l<=r:
+                mid = l + ((r-l)//2)
+                if nums[mid]<target:
+                    l = mid+1
+                elif nums[mid]>target:
+                    r = mid-1
+                else:
+                    r = mid-1
+                    first = mid
+            return first 
+        def binary_search_right(nums,target):
+            l,r = 0,len(nums)-1
+            last = -1
+            while l<=r:
+                mid = l + ((r-l)//2)
+                if nums[mid]<target:
+                    l = mid+1
+                elif nums[mid]>target:
+                    r = mid-1
+                else:
+                    l = mid+1
+                    last = mid
+            return last  
+        return  [binary_search_left(nums,target),binary_search_right(nums,target)]
+```
 ### Trapping Rain Water
 ```python
 class Solution:
