@@ -91,6 +91,19 @@ class Solution:
 ### Verifying an Alien Dictionary
 ### Next Permutation
 ### Remove Duplicates from Sorted Array
+```python
+def remove_duplicates(nums):
+    if not nums:
+        return 0
+
+    i = 0  # Pointer for the last unique element
+    for j in range(1, len(nums)):
+        if nums[j] != nums[i]:
+            i += 1
+            nums[i] = nums[j]
+
+    return i + 1  # Length of array with unique elements
+```
 ### Find First and Last Position of Element in Sorted Array
 ```python
 class Solution:
