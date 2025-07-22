@@ -88,6 +88,24 @@ class Solution:
 ### 3 Sum
 ### Merge Sorted Array
 ### Container With Most Water
+```python
+def max_area(height):
+    left, right = 0, len(height) - 1
+    max_water = 0
+
+    while left < right:
+        # Calculate current area
+        current_water = min(height[left], height[right]) * (right - left)
+        max_water = max(max_water, current_water)
+
+        # Move the pointer pointing to the shorter line
+        if height[left] < height[right]:
+            left += 1
+        else:
+            right -= 1
+
+    return max_water
+```
 ### Verifying an Alien Dictionary
 ### Next Permutation
 ### Remove Duplicates from Sorted Array
