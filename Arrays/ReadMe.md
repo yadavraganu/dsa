@@ -93,6 +93,28 @@ class Solution:
 ### Remove Duplicates from Sorted Array
 ### Find First and Last Position of Element in Sorted Array
 ### Trapping Rain Water
+```python
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        if not height:
+            return 0
+
+        left, right = 0, len(height) - 1
+        left_max, right_max = height[left], height[right]
+        water = 0
+
+        while left < right:
+            if left_max < right_max:
+                left += 1
+                left_max = max(left_max, height[left])
+                water += max(0, left_max - height[left])
+            else:
+                right -= 1
+                right_max = max(right_max, height[right])
+                water += max(0, right_max - height[right])
+
+        return water
+```
 ### Median of Two Sorted Arrays
 ### Valid Anagram
 ### Top K Frequent Elements
@@ -100,3 +122,22 @@ class Solution:
 ### Valid Sudoku
 ### Encode and Decode Strings
 ### Longest Consecutive Sequence
+```python
+def longest_consecutive(nums):
+    num_set = set(nums)
+    longest = 0
+
+    for num in num_set:
+        # Only start counting if it's the beginning of a sequence
+        if num - 1 not in num_set:
+            current = num
+            streak = 1
+
+            while current + 1 in num_set:
+                current += 1
+                streak += 1
+
+            longest = max(longest, streak)
+
+    return longest
+```
