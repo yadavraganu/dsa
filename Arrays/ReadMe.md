@@ -324,6 +324,40 @@ class Solution:
         return list(anagram_groups.values())
 ```
 ### Valid Sudoku
+```python
+import collections
+
+def isValidSudoku(board: list[list[str]]) -> bool:
+    rows = collections.defaultdict(set)
+    cols = collections.defaultdict(set)
+    boxes = collections.defaultdict(set) # Key: (row_box_index, col_box_index)
+
+    for r in range(9):
+        for c in range(9):
+            char = board[r][c]
+            if char == '.':
+                continue
+
+            # Check row
+            if char in rows[r]:
+                return False
+            rows[r].add(char)
+
+            # Check column
+            if char in cols[c]:
+                return False
+            cols[c].add(char)
+
+            # Check 3x3 box
+            # Integer division to get box indices (0-2 for rows, 0-2 for columns)
+            box_row = r // 3
+            box_col = c // 3
+            if char in boxes[(box_row, box_col)]:
+                return False
+            boxes[(box_row, box_col)].add(char)
+            
+    return True
+```
 ### Encode and Decode Strings
 ### Longest Consecutive Sequence
 ```python
