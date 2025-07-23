@@ -288,6 +288,39 @@ class Solution:
         return water
 ```
 ### Median of Two Sorted Arrays
+```python
+class Solution:
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        l1 = len(nums1)
+        l2 = len(nums2)
+
+        if l1 > l2:
+            return self.findMedianSortedArrays(nums2, nums1)
+        total_len = l1 + l2
+        half_len = (total_len + 1) // 2
+        l = 0
+        r = l1
+        print(l,r,total_len,half_len)
+        while l <= r:
+            part1 = (l + r) // 2
+            part2 = half_len - part1
+
+            l1_left = nums1[part1 - 1] if part1 != 0 else float("-inf")
+            l2_left = nums2[part2 - 1] if part2 != 0 else float("-inf")
+            l1_right = nums1[part1] if part1 != l1 else float("inf")
+            l2_right = nums2[part2] if part2 != l2 else float("inf")
+
+            if l1_left <= l2_right and l2_left <= l1_right:
+                if total_len % 2 == 1:
+                    return max(l1_left, l2_left)
+                else:
+                    return (max(l1_left, l2_left) + min(l1_right, l2_right)) / 2
+            elif l1_left > l2_right:
+                r = part1 - 1
+            elif l1_right < l2_left:
+                l = part1 + 1
+        return 0.0
+```
 ### Valid Anagram
 ```python
 class Solution:
