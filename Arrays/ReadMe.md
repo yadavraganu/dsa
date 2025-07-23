@@ -195,6 +195,29 @@ def max_area(height):
 ```
 ### Verifying an Alien Dictionary
 ### Next Permutation
+```python
+class Solution:
+    def nextPermutation(self, nums: List[int]) -> None:
+
+        # 1. Find the first decreasing element from the right (pivot)
+        i = len(nums) - 2
+        while i >= 0 and nums[i] >= nums[i + 1]:
+            i -= 1
+        # If such an element exists ,Find the smallest element to the right of pivot that is greater than pivot
+        if i >= 0:
+            for j in range(len(nums) - 1, i, -1):
+                if nums[j] > nums[i]:
+                    break
+            # Swap the pivot with this found elemen
+            nums[i], nums[j] = nums[j], nums[i]
+        l = i + 1
+        r = len(nums) - 1
+        # Reverse the suffix starting from pivot + 1
+        while l < r:
+            nums[l], nums[r] = nums[r], nums[l]
+            r -= 1
+            l += 1
+```
 ### Remove Duplicates from Sorted Array
 ```python
 def remove_duplicates(nums):
