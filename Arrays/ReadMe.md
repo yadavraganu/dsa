@@ -289,6 +289,22 @@ class Solution:
 ```
 ### Median of Two Sorted Arrays
 ### Valid Anagram
+```python
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        from collections import Counter
+
+        cntr = Counter(s)
+        if len(s) == len(t):
+            for i in t:
+                if i not in cntr or cntr[i] == 0:
+                    return False
+                else:
+                    cntr[i] -= 1
+        else:
+            return False
+        return True
+```
 ### Top K Frequent Elements
 ### Group Anagrams
 ### Valid Sudoku
