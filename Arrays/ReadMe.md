@@ -307,6 +307,22 @@ class Solution:
 ```
 ### Top K Frequent Elements
 ### Group Anagrams
+```python
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        import collections
+
+        # Use a defaultdict to automatically create a list if a key is new
+        anagram_groups = collections.defaultdict(list)
+
+        for word in strs:
+            # Sort the word to create a canonical key for anagrams
+            # Example: "eat" -> "aet", "tea" -> "aet"
+            sorted_word_tuple = tuple(sorted(word))  # Use tuple for hashable key
+            anagram_groups[sorted_word_tuple].append(word)
+
+        return list(anagram_groups.values())
+```
 ### Valid Sudoku
 ### Encode and Decode Strings
 ### Longest Consecutive Sequence
