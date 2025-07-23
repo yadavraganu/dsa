@@ -339,6 +339,26 @@ class Solution:
         return True
 ```
 ### Top K Frequent Elements
+```python
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        from collections import Counter
+
+        cntr = Counter(nums)
+
+        bckts = [[] for _ in range(len(nums) + 1)]
+
+        for num, count in cntr.items():
+            bckts[count].append(num)
+
+        res = []
+
+        for i in range(len(bckts) - 1, 0, -1):
+            for num in bckts[i]:
+                res.append(num)
+                if len(res) == k:
+                    return res
+```
 ### Group Anagrams
 ```python
 class Solution:
