@@ -154,6 +154,35 @@ def two_sum(numbers, target):
     return []
 ```
 ### 3 Sum
+```python
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        i = 0
+        nums.sort()
+        res = []
+        while i < len(nums) - 2:
+            if nums[i] == nums[i - 1] and i > 0:
+                i += 1
+                continue
+            else:
+                j, k = i + 1, len(nums) - 1
+                while j < k:
+                    total = nums[i] + nums[j] + nums[k]
+                    if total == 0:
+                        res.append([nums[i], nums[j], nums[k]])
+                        while j < k and nums[j] == nums[j + 1]:
+                            j += 1
+                        while j < k and nums[k] == nums[k - 1]:
+                            k -= 1
+                        j += 1
+                        k -= 1
+                    elif total < 0:
+                        j += 1
+                    else:
+                        k -= 1
+            i += 1
+        return res
+```
 ### Merge Sorted Array
 ```python
 class Solution:
