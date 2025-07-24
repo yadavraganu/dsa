@@ -194,6 +194,35 @@ def max_area(height):
     return max_water
 ```
 ### Verifying an Alien Dictionary
+```python
+import collections
+
+def isAlienSorted(words: list[str], order: str) -> bool:
+    # Step 1: Create a mapping from alien character to its numerical order
+    char_order = {char: i for i, char in enumerate(order)}
+
+    # Step 2: Define a helper function to compare two words based on the alien order
+    def compare(word1: str, word2: str) -> bool:
+        min_len = min(len(word1), len(word2))
+        
+        # Iterate through characters up to the length of the shorter word
+        for i in range(min_len):
+            char1_val = char_order[word1[i]] # Get numerical value of char from word1
+            char2_val = char_order[word2[i]] # Get numerical value of char from word2
+
+            if char1_val < char2_val:
+                return True  # word1 comes before word2
+            elif char1_val > char2_val:
+                return False # word1 comes after word2
+
+        return len(word1) <= len(word2)
+
+    # Step 3: Iterate through adjacent pairs of words and compare them
+    for i in range(len(words) - 1):
+        if not compare(words[i], words[i+1]):
+            return False
+    return True
+```
 ### Next Permutation
 ```python
 class Solution:
