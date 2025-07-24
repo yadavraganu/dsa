@@ -441,6 +441,41 @@ def isValidSudoku(board: list[list[str]]) -> bool:
     return True
 ```
 ### Encode and Decode Strings
+```python
+class Codec:
+    def encode(self, strs: list[str]) -> str:
+        """Encodes a list of strings to a single string.
+        """
+        encoded_string = []
+        for s in strs:
+            encoded_string.append(str(len(s)) + '#' + s)
+        return "".join(encoded_string)
+
+    def decode(self, s: str) -> list[str]:
+        """Decodes a single string to a list of strings.
+        """
+        decoded_strings = []
+        i = 0
+        while i < len(s):
+            j = i
+            # Find the '#' delimiter
+            while j < len(s) and s[j] != '#':
+                j += 1
+            
+            # Extract the length
+            length_str = s[i:j]
+            length = int(length_str)
+            
+            # Extract the string itself
+            start_of_string = j + 1
+            end_of_string = start_of_string + length
+            decoded_strings.append(s[start_of_string:end_of_string])
+            
+            # Move pointer to the beginning of the next string
+            i = end_of_string
+            
+        return decoded_strings
+```
 ### Longest Consecutive Sequence
 ```python
 def longest_consecutive(nums):
