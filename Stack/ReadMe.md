@@ -93,7 +93,20 @@ class Solution:
 
         return stack
 ```
-## Daily Temperatures   	
+## Daily Temperatures
+```python
+class Solution:
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        op = [0] * len(temperatures)
+        stack = []
+
+        for i, temp in enumerate(temperatures): # Iterating Temp one by one
+            while stack and temp > stack[-1][1]: # Removing from stack when warmer temp detected continously
+                op[stack[-1][0]] = i - stack[-1][0] # Setting output for the top element in stack
+                stack.pop() # Removing element for which we found warmer temp
+            stack.append((i, temp)) # If current temp is not warmer push on to stack
+        return op
+```
 ## Online Stock Span   	
 ## Car Fleet   	
 ## Simplify Path   	
