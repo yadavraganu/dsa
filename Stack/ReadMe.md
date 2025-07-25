@@ -108,7 +108,27 @@ class Solution:
         return op
 ```
 ## Online Stock Span   	
-## Car Fleet   	
+## Car Fleet
+```python
+class Solution:
+    def carFleet(self, target: int, position: List[int], speed: List[int]) -> int:
+
+        time_taken_till_tgt = []
+
+        for i in range(len(position)):
+            time_taken_till_tgt.append((position[i],(target - position[i]) / speed[i]))
+
+        time_taken_till_tgt.sort(reverse=True)
+
+        fleet = 0
+        max_time_taken = 0
+
+        for t in time_taken_till_tgt:
+            if t[1] > max_time_taken:
+                fleet += 1
+                max_time_taken = t[1]
+        return fleet
+```
 ## Simplify Path   	
 ## Decode String   	
 ## Maximum Frequency Stack   	
