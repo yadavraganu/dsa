@@ -69,7 +69,30 @@ class MaxStack:
 ## Implement Queue using Stacks   	  	
 ## Evaluate Reverse Polish Notation   	
 ## Generate Parentheses   	
-## Asteroid Collision   	
+## Asteroid Collision
+```python
+class Solution:
+    def asteroidCollision(self, asteroids: List[int]) -> List[int]:
+        stack = []
+        for i in asteroids:  # Traversing stack one by one
+            while (
+                stack and i < 0 and stack[-1] > 0
+            ):  # Only Enter if there is a stack & astroids are moving towards each other
+                if abs(i) > stack[-1]:
+                    stack.pop()  # Destroy already existing asteroid in stack
+                elif abs(i) < stack[-1]:
+                    i = 0  # Destroy currrent asteroid
+                else:
+                    i = 0  # Destroy currrent asteroid
+                    stack.pop()  # Destroy already existing asteroid in stack
+
+            if (
+                i != 0
+            ):  # Only append if asteroids are not moving towards each other and dont append if current asteroids is destroyed
+                stack.append(i)
+
+        return stack
+```
 ## Daily Temperatures   	
 ## Online Stock Span   	
 ## Car Fleet   	
