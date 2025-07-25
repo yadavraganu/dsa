@@ -25,6 +25,44 @@ class MinStack:
 ## Minimum Remove to Make Valid Parentheses
 ## Longest Valid Parentheses
 ## Max Stack
+```python
+class MaxStack:
+    def __init__(self):
+        self.num = []  # Main stack
+        self.max = []  # Max stack
+
+    def push(self, x: int) -> None:
+        max_val = x if not self.max else max(x, self.max[-1])
+        self.num.append(x)
+        self.max.append(max_val)
+
+    def pop(self) -> int:
+        self.max.pop()
+        return self.num.pop()
+
+    def top(self) -> int:
+        return self.num[-1]
+
+    def peekMax(self) -> int:
+        return self.max[-1]
+
+    def popMax(self) -> int:
+        max_val = self.peekMax()
+        buffer = []
+
+        # Pop until we find the max
+        while self.top() != max_val:
+            buffer.append(self.pop())
+
+        # Remove the max
+        self.pop()
+
+        # Push back the buffered elements
+        while buffer:
+            self.push(buffer.pop())
+
+        return max_val
+```
 ## Baseball Game   	
 ## Valid Parentheses   	
 ## Implement Stack Using Queues   	
