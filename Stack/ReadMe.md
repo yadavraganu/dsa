@@ -205,7 +205,34 @@ class Solution:
 ## Implement Stack Using Queues   	
 ## Implement Queue using Stacks   	  	
 ## Evaluate Reverse Polish Notation   	
-## Generate Parentheses   	
+## Generate Parentheses
+```python
+class Solution:
+    def generateParenthesis(self, n: int) -> List[str]:
+        res = []  # List to store all valid parenthesis combinations
+
+        # Backtracking helper function
+        # s: current string being built
+        # open: count of '(' added so far
+        # close: count of ')' added so far
+        def backtrack(s='', open=0, close=0):
+            # Base case: if string length is 2*n, a valid combination is formed
+            if len(s) == 2 * n:
+                res.append(s)
+                return
+
+            # Add '(': if open count is less than n
+            if open < n:
+                backtrack(s + '(', open + 1, close)
+
+            # Add ')': if close count is less than open count (ensures validity)
+            if close < open:
+                backtrack(s + ')', open, close + 1)
+
+        # Start backtracking from an empty string
+        backtrack()
+        return res
+```
 ## Asteroid Collision
 ```python
 class Solution:
