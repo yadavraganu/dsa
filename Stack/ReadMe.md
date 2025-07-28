@@ -49,6 +49,87 @@ class Solution:
         return "".join(chars)
 ```
 ## Longest Valid Parentheses
+```python
+class Solution:
+    def longestValidParentheses(self, s: str) -> int:
+        max_length = 0
+        # Initialize the stack with -1. This serves as a base for calculations
+        # and represents the index before the start of a potential valid substring.
+        stack = [-1] 
+
+        for i, char in enumerate(s):
+            if char == '(':
+                # If it's an opening parenthesis, push its index onto the stack.
+                stack.append(i)
+            else:  # char == ')'
+                # If it's a closing parenthesis, pop the top element from the stack.
+                stack.pop()
+
+                # Case 1: Stack becomes empty after popping.
+                # This means the current ')' didn't find a matching '('.
+                # Push the current index as the new "base" for future calculations.
+                if not stack:
+                    stack.append(i)
+                # Case 2: Stack is not empty after popping.This means we found a valid pair.
+                # The length of this valid segment is current_index - stack.top().
+                # stack[-1] will be the index of the last unmatched opening parenthesis
+                # or the initial -1 base.
+                else:
+                    max_length = max(max_length, i - stack[-1])
+        
+        return max_length
+########################################################################
+class Solution:
+    def longestValidParentheses(self, s: str) -> int:
+        max_length = 0
+        left_count = 0  # Counts opening parentheses
+        right_count = 0 # Counts closing parentheses
+        n = len(s)
+
+        # Pass 1: Scan from left to right
+        # This pass handles cases like "(()" and finds valid substrings where
+        # the number of '(' equals the number of ')'.
+        for i in range(n):
+            if s[i] == '(':
+                left_count += 1
+            else:  # s[i] == ')'
+                right_count += 1
+
+            if left_count == right_count:
+                # If counts are equal, we found a perfectly balanced valid substring.
+                # Its length is twice the count of either parentheses.
+                max_length = max(max_length, 2 * right_count)
+            elif right_count > left_count:
+                # If more ')' appear than '(', the current segment is invalid.
+                # Reset counts to start looking for a new valid substring.
+                left_count = 0
+                right_count = 0
+
+        # Reset counts for the second pass
+        left_count = 0
+        right_count = 0
+
+        # Pass 2: Scan from right to left
+        # This pass handles cases like "((()" which might be missed by the first pass
+        # (e.g., "((()" in first pass: left=3, right=1 -> max_len=0.
+        # But scanning right-to-left: ")", then "()", then "(()").
+        for i in range(n - 1, -1, -1):
+            if s[i] == '(':
+                left_count += 1
+            else:  # s[i] == ')'
+                right_count += 1
+
+            if left_count == right_count:
+                # Similar to the first pass, if counts are equal, update max_length.
+                max_length = max(max_length, 2 * left_count) # Or 2 * right_count, they are equal
+            elif left_count > right_count:
+                # If more '(' appear than ')', the current segment (from right to left) is invalid.
+                # Reset counts.
+                left_count = 0
+                right_count = 0
+                
+        return max_length
+```
 ## Max Stack
 ```python
 class MaxStack:
