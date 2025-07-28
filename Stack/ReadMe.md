@@ -244,7 +244,19 @@ class Solution:
             stack.append((i, temp)) # If current temp is not warmer push on to stack
         return op
 ```
-## Online Stock Span   	
+## Online Stock Span
+```python
+class StockSpanner:
+    def __init__(self):
+        self.stack = []
+
+    def next(self, price):
+        res = 1
+        while self.stack and self.stack[-1][0] <= price:
+            res += self.stack.pop()[1]
+        self.stack.append([price, res])
+        return res
+```
 ## Car Fleet
 ```python
 class Solution:
