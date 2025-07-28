@@ -21,8 +21,33 @@ class MinStack:
     def getMin(self) -> int:
         return self.st[-1][1] if self.st else None
 ```
-## Largest Rectangle in Histogram
 ## Minimum Remove to Make Valid Parentheses
+```python
+class Solution:
+    def minRemoveToMakeValid(self, s: str) -> str:
+        chars = list(s)  # Convert string to a list of characters for mutability
+        stack = []  # Stores indices of opening parentheses
+
+        # First Pass: Identify and mark invalid ')'
+        for i, char in enumerate(chars):
+            if char == '(':
+                stack.append(i)  # Push index of '(' onto stack
+            elif char == ')':
+                if stack:
+                    stack.pop()  # Pop if a matching '(' is found
+                else:
+                    # No matching '(' found for this ')', mark it for removal
+                    chars[i] = ''  # Replace with empty string to effectively remove
+
+        # Second Pass: Identify and mark invalid '('
+        # Any '(' remaining in the stack are unmatched and thus invalid
+        while stack:
+            invalid_open_idx = stack.pop()
+            chars[invalid_open_idx] = ''  # Mark for removal
+
+        # Join the characters to form the final valid string
+        return "".join(chars)
+```
 ## Longest Valid Parentheses
 ## Max Stack
 ```python
