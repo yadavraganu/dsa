@@ -169,7 +169,23 @@ class MaxStack:
 
         return max_val
 ```
-## Baseball Game   	
+## Baseball Game
+```python
+class Solution:
+    def calPoints(self, operations: List[str]) -> int:
+        res = []
+        for i in operations:
+            if i == "C":
+                res.pop()
+            elif i == "D":
+                res.append(int(res[-1]) * 2)
+            elif i == "+":
+                print(res)
+                res.append(int(res[-2]) + int(res[-1]))
+            else:
+                res.append(int(i))
+        return sum(res)
+```
 ## Valid Parentheses   	
 ## Implement Stack Using Queues   	
 ## Implement Queue using Stacks   	  	
