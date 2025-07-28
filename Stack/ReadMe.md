@@ -186,7 +186,22 @@ class Solution:
                 res.append(int(i))
         return sum(res)
 ```
-## Valid Parentheses   	
+## Valid Parentheses
+```python
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack = []
+        mapping = {")":"(", "}":"{", "]":"["}
+
+        for char in s:
+            if char in mapping.values():
+                stack.append(char)
+            elif char in mapping.keys():
+                if not stack or mapping[char] != stack.pop():
+                    return False
+        
+        return not stack
+```
 ## Implement Stack Using Queues   	
 ## Implement Queue using Stacks   	  	
 ## Evaluate Reverse Polish Notation   	
