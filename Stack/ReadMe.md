@@ -307,5 +307,33 @@ class Solution:
 ```
 ## Simplify Path   	
 ## Decode String   	
-## Maximum Frequency Stack   	
+## Maximum Frequency Stack
+```python
+from collections import defaultdict
+
+class FreqStack:
+
+    def __init__(self):
+        self.freqStack = defaultdict(list)
+        self.valFreq = defaultdict(int)
+        self.maxFreq = 0
+
+    def push(self, val: int) -> None:
+        # Update valFreq
+        self.valFreq[val] += 1
+        currFreq = self.valFreq[val]
+        # Update self.maxFreq
+        self.maxFreq = max(self.maxFreq, currFreq)
+        # Append val in currFreq slot
+        self.freqStack[currFreq].append(val)
+        
+    def pop(self) -> int:
+        # Get from maxFreq and last element in freqStack
+        popValue = self.freqStack[self.maxFreq].pop()
+        self.valFreq[popValue] -= 1
+        #Update maxFreq
+        if not self.freqStack[self.maxFreq]:
+            self.maxFreq -= 1
+        return popValue
+```
 ## Largest Rectangle In Histogram
