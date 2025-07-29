@@ -31,3 +31,17 @@ def merge(intervals):
             merged[-1][1] = max(merged[-1][1], interval[1])
     return merged
 ```
+## Non Overlapping Intervals
+```python
+def eraseOverlapIntervals(intervals):
+    intervals.sort(key=lambda x: x[1])  # Sort by end time
+    count = 0
+    end = float('-inf')
+    for i in intervals:
+        # If overlapping, increment count
+        if i[0] < end:
+            count += 1
+        else:
+            end = i[1]
+    return count
+```
