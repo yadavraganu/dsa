@@ -366,3 +366,30 @@ class FreqStack:
         return popValue
 ```
 ## Largest Rectangle In Histogram
+```python
+class Solution:
+    def largestRectangleArea(self, heights: List[int]) -> int:
+        stack = []  # Stack stores tuples of (start_index, height)
+        area = 0
+        heights.append(0)  # Sentinel to flush the stack at the end
+
+        for i, h in enumerate(heights):
+            start = i  # Start index for the current bar
+
+            # Pop bars from the stack while they are taller than the current bar
+            while stack and stack[-1][1] > h:
+                index, height = stack.pop()
+
+                # Calculate width using the current index and the popped index
+                width = i - index
+                area = max(area, height * width)
+
+                # Update start to the index of the popped bar
+                # This ensures the next bar uses the correct left boundary
+                start = index
+
+            # Push the current bar with its correct start index
+            stack.append((start, h))
+
+        return area
+```
